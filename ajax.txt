@@ -1,0 +1,4 @@
+<div id="demo">
+    <h2>Ala ma kota a kot ma pchły</h2>
+    <button type="button" onclick="loadDoc()" class="button">Sprawdz Promocje</button>
+</div>
