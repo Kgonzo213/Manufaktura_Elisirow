@@ -127,12 +127,8 @@ $conn->close();
     <script src="main.js" defer></script>
 </head>
 <body>
-    <nav>
-        <a href="strona_glowna.html" class="button">Nasza Strona Główna</a>
-        <a href="Galeria.html" class="button">Galeria</a>
-        <a href="koszyk.html" class="button">Koszyk</a>
-        <a href="logowanie.html" class="button">Zaloguj się</a>
-    </nav>
+    
+<?php include 'nav.php'; ?>
 
     <header>
         <h1>Rejestracja</h1>

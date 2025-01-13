@@ -17,6 +17,8 @@ $registrationData = $_SESSION['registration_data'];
     <link rel="stylesheet" href="styl1.css">
 </head>
 <body>
+    
+<?php include 'nav.php'; ?>
     <header>
         <h1>Rejestracja zakończona</h1>
     </header>
@@ -34,7 +36,7 @@ $registrationData = $_SESSION['registration_data'];
             <p><strong>Zdjęcie profilowe:</strong> Brak przesłanego zdjęcia.</p>
         <?php endif; ?>
         <p>
-            <a href="logowanie.html" class="button">Kontynuuj</a>
+            <a href="logowanie.php" class="button">Kontynuuj</a>
         </p>
     </div>
 
