@@ -1,27 +1,26 @@
 <?php
-// produkt.php
-// 1. Połączenie z bazą
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "manufaktura";
 
-// Stwórz obiekt mysqli
+
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Sprawdź połączenie
+
 if ($conn->connect_error) {
     die("Błąd połączenia z bazą: " . $conn->connect_error);
 }
 
-// 2. Sprawdzenie, czy jest podany parametr id w GET
+
 if (!isset($_GET['id'])) {
-    die("Niepoprawne wywołanie strony. Brak parametru ID produktu.");
+    die("Niepoprawne wywołanie strony Brak parametru ID produktu.");
 }
 
-// Bezpieczne rzutowanie na int (chcemy mieć pewność, że to liczba)
-$productId = (int) $_GET['id'];
 
-// 3. Pobierz z bazy dane produktu
+$productId = $_GET['id'];
+
+
 $sql = "SELECT * FROM products WHERE id = $productId LIMIT 1";
 $result = $conn->query($sql);
 
@@ -29,10 +28,10 @@ if ($result->num_rows !== 1) {
     die("Nie znaleziono produktu o podanym ID.");
 }
 
-// 4. Wyciągnij dane do tablicy asocjacyjnej
+
 $product = $result->fetch_assoc();
 
-// 5. Zamknij połączenie
+
 $conn->close();
 ?>
 
@@ -58,10 +57,9 @@ $conn->close();
     <div class="about-us">
         <h1><?php echo htmlspecialchars($product['name']); ?></h1>
         
-        <!-- Długi opis produktu -->
+        
         <p><?php echo nl2br(htmlspecialchars($product['long_description'])); ?></p>
         
-        <!-- Zdjęcie produktu -->
         <img src="<?php echo htmlspecialchars($product['image_path']); ?>" 
              alt="<?php echo htmlspecialchars($product['name']); ?>" 
              style="max-width: 100%; margin: 9% auto; display: block;">
